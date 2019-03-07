@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" />
+    <link rel="stylesheet" href="/static/style.css?v=1.1">
+    <!-- Custom styles for this template -->
+    <title>Edge Object detection</title>
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">
+         <img src="/static/assets/cox-edge-option1.png" />
+         <span id="edge-hostname" class="edge-hostname"></span>
+         ( <span id="edge-ip-address"></span> )
+        </div>        
+        <div class="edge-strip">
+            <img src="/static/assets/edge-wh.png" /><span>Edge</span>
+        </div>
+        <div class="camera-img">
+                <img id="flip-camera" src="/static/assets/camera.png"  onclick="changeCamera()"/>
+        </div>                        
+    </div>
+    <main role="main" class="container">
+        <div class="video-container">
+            <div class="video-content-container">
+                <video id="edgeVideo" autoplay></video>
+                <canvas id="edge-canvas" class="edge-canvas"></canvas>
+            </div>
+        </div>
+    </main><!-- /.container -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-4">
+                <div class="metrics-conatiner">
+                    <div class="row metrics-section">
+                        <div class="col-xs-3  col-sm-6 metric-header">
+                            <span class="time-bold">Request/Responses</span>
+                        </div>
+                        <div class="col-xs-3  col-sm-2 metric-header">
+                            <span class="time-metric">Min</span>
+                        </div>
+                        <div class="col-xs-3 col-sm-2 metric-header">
+                            <span class="time-metric">Avg</span>
+                        </div>
+                        <div class="col-xs-3 col-sm-2 metric-header">
+                            <span class="time-metric">Max</span>
+                        </div>                        
+                    </div>                
+                    <!-- <div class="row clear-margin">
+                        <div class="col-xs-3  col-sm-6 metric-data">
+                            <span class="time-metric" >Request Time</span>
+                        </div>
+                        <div class="col-xs-3  col-sm-2 metric-data">
+                            <span class="time-metric" id="req-min-resp-time">0 ms</span>
+                        </div>
+                        <div class="col-xs-3  col-sm-2 metric-data">
+                            <span class="time-metric" id="req-avg-resp-time">0 ms</span>
+                        </div>
+                        <div class="col-xs-3 col-sm-2 metric-data">
+                            <span class="time-metric" id="req-max-resp-time">0 ms</span>
+                        </div>  
+                    </div> -->
+                    <div class="row clear-margin">
+                        <div class="col-xs-2 col-sm-6 metric-data">
+                            <span class="time-metric">Processing Time</span>
+                        </div>
+                        <div class="col-xs-2 col-sm-2 metric-data">
+                            <span class="time-metric" id="processing-min-resp-time">0 ms</span>
+                        </div>
+                        <div class="col-xs-2 col-sm-2 metric-data">
+                            <span class="time-metric" id="processing-avg-resp-time">0 ms</span>
+                        </div>
+                        <div class="col-xs-2 col-sm-2 metric-data">
+                            <span class="time-metric" id="processing-max-resp-time">0 ms</span>
+                        </div>  
+                    </div> 
+                    <!-- <div class="row clear-margin">
+                        <div class="col-xs-3  col-sm-6 metric-data">
+                            <span class="time-metric" >Response Time</span>
+                        </div>
+                        <div class="col-xs-3  col-sm-2 metric-data">
+                            <span class="time-metric" id="resp-min-resp-time">0 ms</span>
+                        </div>
+                        <div class="col-xs-3  col-sm-2 metric-data">
+                            <span class="time-metric" id="resp-avg-resp-time">0 ms</span>
+                        </div>
+                        <div class="col-xs-3 col-sm-2 metric-data">
+                            <span class="time-metric" id="resp-max-resp-time">0 ms</span>
+                        </div>  
+                    </div>  -->
+                    <div class="row clear-margin">
+                        <div class="col-xs-3  col-sm-6 metric-data">
+                            <span class="time-lable" >Round Trip Time</span>
+                        </div>
+                        <div class="col-xs-3  col-sm-2 metric-data">
+                            <span class="time-lable" id="overall-min-resp-time">0 ms</span>
+                        </div>
+                        <div class="col-xs-3  col-sm-2 metric-data">
+                            <span class="time-lable" id="overall-avg-resp-time">0 ms</span>
+                        </div>
+                        <div class="col-xs-3  col-sm-2 metric-data">
+                            <span class="time-lable" id="overall-max-resp-time">0 ms</span>
+                        </div>  
+                    </div>                                                 
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-8">
+                <div class="gragh-section">
+                    <div id="edgeChartContainer" style="height: 192px; width: 100%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script id="objDetect" src="/static/objDetect.js?v=1.6" data-source="edgeVideo" data-mirror="false" data-uploadWidth="640"
+        data-scoreThreshold="0.40"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+version: '2'
+services:
+  cloud-node:
+    image: chadhart/tensorflow-object-detection:runserver
+    ports:
+      - "5000:5000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /home/santhosh/projects/cloud-node/static:/code/static
