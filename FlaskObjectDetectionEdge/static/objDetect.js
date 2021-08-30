@@ -179,7 +179,7 @@ function postFile(file) {
             document.getElementById('overall-min-resp-time').innerHTML=Math.min(...edgeDataArray).toFixed(2)+' ms';
             document.getElementById('overall-avg-resp-time').innerHTML=(edgeDataArray.reduce((a,b) => a + b, 0) / edgeDataArray.length).toFixed(2)+' ms';
 
-            edgeChart.options.data[0].dataPoints.push({ y: rttProcessingTime });
+            edgeChart.options.data[0].dataPoints.push({ y: processingTime });
             edgeChart.render();           
             
         }
