@@ -177,7 +177,7 @@ function postFile(file) {
             document.getElementById('overall-min-resp-time').innerHTML=Math.min(...cloudDataArray).toFixed(2)+' ms';
             document.getElementById('overall-avg-resp-time').innerHTML=(cloudDataArray.reduce((a,b) => a + b, 0) / cloudDataArray.length).toFixed(2)+' ms';
 
-            cloudChart.options.data[0].dataPoints.push({ y: rttProcessing });
+            cloudChart.options.data[0].dataPoints.push({ y: processingTime });
             cloudChart.render();           
             
         }

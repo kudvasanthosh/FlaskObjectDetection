@@ -238,11 +238,11 @@ $( document ).ready(function() {
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             let serverData=JSON.parse(this.responseText)
-            document.getElementById("edge-ip-address").innerHTML = serverData.serverIp;
-            document.getElementById("edge-hostname").innerHTML = serverData.serverName;
+            document.getElementById("edge-ip-address").innerHTML = serverData.ip;
+            document.getElementById("edge-hostname").innerHTML = serverData.city;
        }
     };
-    xhttp.open("GET", "https://ip-service.geo.edge.kontena.works/", true);
+    xhttp.open("GET", window.location.origin +"/location", true);
     xhttp.send();
 });
 

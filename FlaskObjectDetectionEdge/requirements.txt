@@ -38,6 +38,7 @@ python-dateutil==2.6.1
 pytz==2017.2
 pyzmq==16.0.2
 qtconsole==4.3.1
+requests==2.26.0
 simplegeneric==0.8.1
 six==1.10.0
 tensorflow==1.4.0

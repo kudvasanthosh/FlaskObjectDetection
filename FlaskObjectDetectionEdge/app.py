@@ -1,4 +1,5 @@
 import os
+import requests
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory,Response
 from werkzeug import secure_filename
 import numpy as np
@@ -54,6 +55,11 @@ def index():
 @app.route('/local')
 def local():
     return Response(open('./static/local.html').read(), mimetype="text/html")
+
+@app.route('/location')
+def location():
+    r = requests.get('https://ipconfig.io/json')
+    return r.text
     
 @app.route('/assets/<path:filename>', methods=['GET'])
 def download(filename):
