@@ -4,7 +4,7 @@
   "description": "A web app utilizing the [MAX Object Detector](https://github.com/IBM/MAX-Object-Detector) model",
   "main": "app.js",
   "scripts": {
-    "start":"node app",
+    "start": "node app",
     "test": "eslint --ignore-pattern *.min.js ."
   },
   "repository": {

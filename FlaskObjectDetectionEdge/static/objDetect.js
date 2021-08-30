@@ -153,7 +153,7 @@ function postFile(file) {
 
             // var requestTime = parseFloat(objects.requestTime);
             let processingTime = parseFloat(objects.processingTime);
-            let  rttProcessingTime= totalTime-processingTime;
+           // let  rttProcessingTime= totalTime-processingTime;
             // var responseTime =Math.abs(parseFloat(responseRecived-objects.processingEnd));
             // //var totalTime= requestTime+processingTime+responseTime;
             // var totalTime= requestTime+responseTime;
@@ -161,7 +161,7 @@ function postFile(file) {
             // requestTimeArray.push(requestTime);
             // responseTimeArray.push(responseTime);
             processingTimeArray.push(processingTime);            
-            edgeDataArray.push(rttProcessingTime);
+            edgeDataArray.push(processingTime);
 
             // document.getElementById('req-max-resp-time').innerHTML=Math.max(...requestTimeArray).toFixed(2)+' ms';
             // document.getElementById('req-min-resp-time').innerHTML=Math.min(...requestTimeArray).toFixed(2)+' ms';

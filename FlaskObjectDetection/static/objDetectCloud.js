@@ -155,11 +155,11 @@ function postFile(file) {
             let processingTime = parseFloat(objects.processingTime);
             // var responseTime =Math.abs(parseFloat(responseRecived-objects.processingEnd));
             // //var totalTime= requestTime+processingTime+responseTime;
-            var rttProcessing= totalTime-processingTime;
+            //var rttProcessing= totalTime-processingTime;
             // requestTimeArray.push(requestTime);
             // responseTimeArray.push(responseTime);
             processingTimeArray.push(processingTime);
-            cloudDataArray.push(rttProcessing);
+            cloudDataArray.push(processingTime);
 
             // document.getElementById('req-max-resp-time').innerHTML=Math.max(...requestTimeArray).toFixed(2)+' ms';
             // document.getElementById('req-min-resp-time').innerHTML=Math.min(...requestTimeArray).toFixed(2)+' ms';

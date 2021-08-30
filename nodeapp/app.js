@@ -17,7 +17,7 @@
 'use strict';
 
 var request = require('request');
-var yargs = require('yargs');
+var args = require('yargs');
 var express = require('express');
 var port = process.env.PORT || 8080;
 
