@@ -9,7 +9,7 @@ const s = document.getElementById('objDetect');
 const uploadWidth = s.getAttribute("data-uploadWidth") || 544; //the width of the upload file
 const mirror =  false; //mirror the boundary boxes
 const scoreThreshold = s.getAttribute("data-scoreThreshold") || 0.5;
-const apiServer =  window.location.origin + '/model/predict';//the full TensorFlow Object Detection API server url
+const apiServer =   'http://ec2-100-24-45-171.compute-1.amazonaws.com/model/predict';//the full TensorFlow Object Detection API server url
 
 var cloudChart;
 var requestTimeArray=[];

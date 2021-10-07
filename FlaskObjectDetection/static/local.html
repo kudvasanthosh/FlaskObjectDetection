@@ -11,7 +11,7 @@
     <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" />
-    <link rel="stylesheet" href="/static/style.css?v=1.1">
+    <link rel="stylesheet" href="./style.css?v=1.1">
     <!-- Custom styles for this template -->
     <title>Cloud Object detection</title>
 </head>
@@ -19,13 +19,13 @@
 <body>
     <div class="header">
         <div class="logo">
-         <img src="/static/assets/cox-edge-option2.png" />
+         <img src="./assets/cox-edge-option2.png" />
         </div>        
         <div class="cloud-strip">
-             <img src="/static/assets/cloud-wh.png" /><span>Cloud</span>
+             <img src="./assets/cloud-wh.png" /><span>Cloud</span>
         </div>
         <div class="camera-img">
-                <img id="flip-camera" src="/static/assets/camera.png"  onclick="changeCamera()"/>
+                <img id="flip-camera" src="./assets/camera.png"  onclick="changeCamera()"/>
         </div>                        
     </div>
     <main role="main" class="container">
@@ -119,7 +119,7 @@
             </div>
         </div>
     </div>
-    <script id="objDetect" src="/static/objDetectCloud.js?v=1.6" data-source="cloudVideo" data-mirror="false" data-uploadWidth="640"
+    <script id="objDetect" src="../assets/objDetectCloud.js?v=1.7" data-source="cloudVideo" data-mirror="false" data-uploadWidth="640"
         data-scoreThreshold="0.50"></script>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>
