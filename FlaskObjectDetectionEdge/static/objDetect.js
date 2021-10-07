@@ -23,7 +23,7 @@ window.onload = function () {
   edgeChart = new CanvasJS.Chart('edgeChartContainer', {
     animationEnabled: true,
     theme: 'light2',
-    backgroundColor: '#000000',
+    backGroundColor: '#ffffff',
     title: {
       text: '',
     },
@@ -33,6 +33,7 @@ window.onload = function () {
     data: [
       {
         type: 'line',
+        lineColor: '#283B7C',
         dataPoints: [{ y: 0 }],
       },
     ],
